@@ -1,7 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import '../css/Footer.css';
 const Footer = () => {
+    const location = useLocation();
+    const path = location.pathname;
+    console.log(path);
     return (
         <div className="Footer">
             <img src="/images/shoplogo.jfif" />
@@ -9,7 +13,7 @@ const Footer = () => {
                 <div className="copyrightAndName">
                     <i class="copyright outline icon big"></i>
                     <span className="year">2021 - </span>
-                    <img src="/images/myname.png" />
+                    {path == '/graphics-card'? < h1>Abhinandan</h1>:<img src="/images/myname.png"/>}
                 </div>
                 <div className="icons">
                     {/* <i class="envelope icon huge"></i> */}

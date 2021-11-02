@@ -55,7 +55,6 @@ const data = [
         img: '/images/Motherboard/img1.jpg',
         price: '2,489',
     },
-
 ];
 
 export default data;
