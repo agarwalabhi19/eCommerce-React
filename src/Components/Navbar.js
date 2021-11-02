@@ -31,6 +31,9 @@ const Navbar = (props) => {
                 <Link to="/add" className="item">
                     Add Item
                 </Link>
+                <Link to="/contact" className="item">
+                    Contact Us
+                </Link>
                 <div className="right menu temp">
                     <Link to="/cart" className="item">
                         <i class="shopping cart large icon cartIcon" ></i>

@@ -11,6 +11,7 @@ import Cart from './Cart';
 import AddProduct from './AddProduct';
 import SignIn from './SignIn';
 import Footer from './Footer';
+import contact from './contact';
 
 import '../css/App.css';
 
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/cart" exact component={Cart} />
                 <Route path="/add" exact component={AddProduct} />
                 <Route path="/sign-in" exact component={SignIn} />
+                <Route path="/contact" exact component={contact} />
             </div>
             <Footer />
         </BrowserRouter>
