@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { useLocation } from 'react-router-dom';
 import '../css/Navbar.css';
 import { getCartItems } from '../action';
 
@@ -10,28 +10,46 @@ const Navbar = (props) => {
     useEffect(() => {
         props.getCartItems();
     }, [])
+
+    const location = useLocation();
+    const path = location.pathname;
+
     return (
         <div className="Navbar">
             <div className="ui secondary pointing menu">
-                <Link to="/" className="item" >
+                <Link to="/" className="item" style={{
+            backgroundColor: path == "/" ? "pink" : "unset",
+          }} >
                     Home
                 </Link>
-                <Link to="/motherboard" className="item">
+                <Link to="/motherboard" className="item" style={{
+            backgroundColor: path == "/motherboard" ? "pink" : "unset",
+          }}>
                     Motherboard
                 </Link>
-                <Link to="/memory" className="item">
+                <Link to="/memory" className="item" style={{
+            backgroundColor: path == "/memory" ? "pink" : "unset",
+          }}>
                     Memory
                 </Link>
-                <Link to="/processor" className="item">
+                <Link to="/processor" className="item"  style={{
+            backgroundColor: path == "/processor" ? "pink" : "unset",
+          }}>
                     Processor
                 </Link>
-                <Link to="/graphics-card" className="item">
+                <Link to="/graphics-card" className="item"  style={{
+            backgroundColor: path == "/graphics-card" ? "pink" : "unset",
+          }}>
                     Graphics Card
                 </Link>
-                <Link to="/add" className="item">
+                <Link to="/add" className="item" style={{
+            backgroundColor: path == "/add" ? "pink" : "unset",
+          }}>
                     Add Item
                 </Link>
-                <Link to="/contact" className="item">
+                <Link to="/contact" className="item" style={{
+            backgroundColor: path == "/contact" ? "pink" : "unset",
+          }}>
                     Contact Us
                 </Link>
                 <div className="right menu temp">

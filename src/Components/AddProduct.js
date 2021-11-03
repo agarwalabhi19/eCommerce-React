@@ -24,7 +24,7 @@ const AddProduct = (props) => {
                 type: Type,
             }
         });
-        // console.log(response);
+        console.log(response);
         setId('');
         setTitle('');
         setPrice('');
