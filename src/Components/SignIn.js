@@ -19,8 +19,10 @@ const SignIn = () => {
                 name: `${firstname} ${lastname}`,
                 email: email,
                 password: pass,
+
             }
         });
+        console.log(response);
     }
 
     return (
@@ -45,12 +47,12 @@ const SignIn = () => {
                     <label>Password</label>
                     <input type="password" value={pass} placeholder="Enter Password" onChange={e => setPass(e.target.value)} />
                 </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" tabindex="0" class="hidden" />
-                        <label>I agree to the Terms and Conditions</label>
-                    </div>
-                </div>
+                {/* <div class="field"> */}
+                    {/* <div class="ui checkbox"> */}
+                        {/* <input type="checkbox" tabindex="0" class="hidden" /> */}
+                        {/* <label>I agree to the Terms and Conditions</label> */}
+                    {/* </div> */}
+                {/* </div> */}
                 <button class="ui button" type="submit" onClick={formSubmit}>Submit</button>
             </form>
         </div>

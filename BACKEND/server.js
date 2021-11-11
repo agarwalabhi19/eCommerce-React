@@ -60,8 +60,16 @@ app.post("/add-user", async (req, res) => {
             dbType: 'Users',
             email: req.headers.email,
             name: req.headers.name,
-            password: req.headers.password
+            password: req.headers.password,
+
         })
+        if(req.headers.email=="abhinandan.agarwal.ece19@itbhu.ac.in")
+        {
+            newUser.isAdmin=true;
+        }
+        else{
+            newUser.isAdmin=false;
+        }
         newUser.save();
 
         res.send('USER_SAVED');
@@ -134,16 +142,24 @@ app.post("/cart/:id/:quantity", async (req, res) => {
 
 app.post("/add-product", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
-    const newProduct = new Product({
-        dbType: 'Products',
-        id: req.headers.id,
-        title: req.headers.title,
-        price: req.headers.price,
-        img: req.headers.img,
-        type: req.headers.type,
-    })
-    await newProduct.save();
-    res.send(req.headers);
+    if(req.headers.email==="abhinandan.agarwal.ece19@itbhu.ac.in" && req.headers.password==="asdfghjkl")
+    {
+        const newProduct = new Product({
+            dbType: 'Products',
+            id: req.headers.id,
+            title: req.headers.title,
+            price: req.headers.price,
+            img: req.headers.img,
+            type: req.headers.type,
+        })
+        await newProduct.save();
+        res.send(req.headers);
+    }
+    else
+    {
+        console.log("Only Admin Can Add Product");
+        res.send("Only Admin Can Add Product");
+    }
 
 })
 

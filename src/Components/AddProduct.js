@@ -10,6 +10,8 @@ const AddProduct = (props) => {
     const [Type, setType] = useState('');
     const [Desc, setDesc] = useState('');
     const [Img, setImg] = useState('');
+    const [Email, setE] = useState('');
+    const [Password, setP] = useState('');
 
     const saveToDB = async (event) => {
         console.log('AddProduct');
@@ -17,6 +19,8 @@ const AddProduct = (props) => {
         const response = await axios.post("http://localhost:5000/add-product", {}, {
             headers: {
                 dbType: 'Product',
+                email: Email,
+                password: Password,
                 id: Id,
                 title: Title,
                 price: Price,
@@ -37,6 +41,14 @@ const AddProduct = (props) => {
     return (
         <div className="mainContainer">
             <form class="ui form">
+            <div class="field">
+                    <label>Email</label>
+                    <input type="text" name="email" value={Email} placeholder="enter email" onChange={e => setE(e.target.value)} />
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" value={Password} placeholder="enter Password" onChange={e => setP(e.target.value)} />
+                </div>
                 <div class="field">
                     <label>ID</label>
                     <input type="text" name="ID" value={Id} placeholder="ID" onChange={e => setId(e.target.value)} />
